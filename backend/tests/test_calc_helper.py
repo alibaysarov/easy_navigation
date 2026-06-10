@@ -23,7 +23,3 @@ def test_get_decimal_from_degrees():
 def test_get_decimal_from_degrees_raises_exception():
     with pytest.raises(RuntimeError):
         get_decimal_from_degrees("0731837A")
-
-
-def test_add():
-    assert 1==3
