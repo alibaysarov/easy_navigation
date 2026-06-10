@@ -1,5 +1,6 @@
 from .base import Base
-from sqlalchemy import UUID, Column, String, Float
+from uuid import uuid4
+from sqlalchemy import UUID, Column, String, Float,text
 from sqlalchemy.orm import Mapped, mapped_column
 from geoalchemy2 import Geometry
 
@@ -7,7 +8,6 @@ from geoalchemy2 import Geometry
 class Airport(Base):
     __tablename__ = "airports"
 
-    id: Mapped[UUID] = mapped_column(UUID, primary_key=True)
 
     name: Mapped[String] = mapped_column(String, nullable=False)
 

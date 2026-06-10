@@ -1,4 +1,6 @@
 from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy import text
+from uuid import uuid4
 from sqlalchemy import String, Integer, Column
 from uuid import UUID
 from typing import Optional
@@ -8,7 +10,6 @@ from .base import Base
 class User(Base):
     __tablename__ = "users"
 
-    id: Mapped[UUID] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(80))
     email: Mapped[str] = mapped_column(String(80))
     password: Mapped[str] = mapped_column(String)

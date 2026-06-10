@@ -19,7 +19,7 @@ async def import_airport(
 ):
     logger.info("123")
     try:
-        result, failed = point_import_service.import_airport(list=list)
+        result, failed = await point_import_service.import_airport(list=list)
 
         return JSONResponse(content={"result": result, "failed": failed})
     except Exception as e:
@@ -27,7 +27,7 @@ async def import_airport(
         return JSONResponse(
             status_code=500,
             content={
-                "error": {"error"},
+                "error": str(e),
             },
         )
 
