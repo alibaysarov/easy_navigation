@@ -26,4 +26,4 @@ def test_get_decimal_from_degrees_raises_exception():
 
 
 def test_add():
-    assert 1==2
+    assert 1==3
