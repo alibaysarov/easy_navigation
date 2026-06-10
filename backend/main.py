@@ -12,7 +12,6 @@ app = FastAPI()
 app.include_router(base_router)
 
 
-
 @app.get("/users")
 def get_users(session: Session = Depends(get_db)):
     stmt = select(User.id, User.name).limit(10)

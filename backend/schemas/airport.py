@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field,field_validator
+from pydantic import BaseModel, Field, field_validator
 
 """
  "name": "АБАКАН",
@@ -15,13 +15,8 @@ class Airport(BaseModel):
     code: str
     lat: str
     lng: str
-    
+
     @field_validator("lat", "lng")
     @classmethod
     def normalize(cls, v: str):
-        return (
-            v.replace("Е", "E")
-             .replace("С", "S")
-             .replace("В", "E")
-             .replace("З", "W")
-        )
+        return v.replace("Е", "E").replace("С", "S").replace("В", "E").replace("З", "W")
