@@ -4,3 +4,12 @@ repos:
     hooks:
       - id: ruff-format
         files: ^backend/
+        stages: [pre-commit]
+  - repo: local
+    hooks:
+      - id: pytest-backend
+        name: pytest backend
+        entry: bash -c "cd backend && pytest tests/"
+        language: system
+        pass_filenames: false
+        stages: [pre-push]
