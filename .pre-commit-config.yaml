@@ -13,3 +13,12 @@ repos:
         language: system
         pass_filenames: false
         stages: [pre-push]
+        
+  - repo: local
+    hooks:
+      - id: pytest-coverage-backend
+        name: pytest_backend_coverage_min_75
+        entry: bash -c "cd backend && source .venv/bin/activate && pytest tests/ --cov=. --cov-report=term --cov-fail-under=75"
+        language: system
+        pass_filenames: false
+        stages: [pre-push]
